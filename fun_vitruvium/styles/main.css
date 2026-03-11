@@ -1,0 +1,381 @@
+/* ================================== */
+/* ====== ОСНОВНЫЕ СТИЛИ =========== */
+/* ================================== */
+
+.vitruvium.sheet.actor {
+  min-width: 720px;
+  min-height: 680px;
+}
+
+.vitruvium .sheet-header {
+  background: #2b2b2b;
+  color: white;
+  padding: 8px;
+  border-radius: 4px 4px 0 0;
+}
+
+.vitruvium .sheet-header .profile {
+  border: 2px solid #444;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.vitruvium .sheet-header .charname input {
+  font-size: 24px;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  color: white;
+  border-bottom: 1px solid #666;
+  border-radius: 0;
+  margin: 0;
+  height: 40px;
+}
+
+.vitruvium .sheet-header .summary {
+  margin-top: 5px;
+}
+
+.vitruvium .sheet-header .summary input {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #555;
+  color: #ddd;
+  height: 28px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+/* ====== РЕСУРСЫ (Здоровье, Вдохновение и т.д.) ====== */
+
+.vitruvium .resource-panel {
+  background: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.vitruvium .resource {
+  text-align: center;
+  border-right: 1px solid #ccc;
+}
+
+.vitruvium .resource:last-child {
+  border-right: none;
+}
+
+.vitruvium .resource label {
+  font-weight: bold;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.vitruvium .resource .resource-control {
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.vitruvium .resource .resource-control input {
+  width: 60px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  height: 32px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+
+.vitruvium .resource .resource-control .separator {
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.vitruvium .resource .resource-control .max {
+  font-weight: bold;
+  min-width: 40px;
+  text-align: left;
+}
+
+/* ====== ХАРАКТЕРИСТИКИ ====== */
+
+.vitruvium .attributes-panel {
+  padding: 10px;
+  background: #e8e8e8;
+  border-bottom: 1px solid #ccc;
+}
+
+.vitruvium .attribute {
+  text-align: center;
+}
+
+.vitruvium .attribute label {
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.vitruvium .attribute .attribute-value {
+  justify-content: center;
+  align-items: center;
+}
+
+.vitruvium .attribute .attribute-value input {
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  height: 32px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.vitruvium .attribute .attribute-value button {
+  width: 32px;
+  height: 32px;
+  line-height: 28px;
+  padding: 0;
+  background: #4a6c8f;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.vitruvium .attribute .attribute-value button:hover {
+  background: #5d7ea3;
+}
+
+/* ====== ПРОИЗВОДНЫЕ ПОКАЗАТЕЛИ ====== */
+
+.vitruvium .derived-panel {
+  padding: 8px 10px;
+  background: #d8d8d8;
+  border-bottom: 1px solid #bbb;
+  font-size: 14px;
+}
+
+.vitruvium .derived {
+  margin-right: 20px;
+}
+
+.vitruvium .derived label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.vitruvium .derived .value {
+  font-weight: bold;
+  background: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid #aaa;
+}
+
+.vitruvium .derived .penalty {
+  color: #c00;
+  margin-left: 5px;
+  font-style: italic;
+}
+
+/* ====== ВКЛАДКИ ====== */
+
+.vitruvium .sheet-tabs {
+  background: #2b2b2b;
+  padding: 5px 10px 0;
+  border-bottom: 1px solid #444;
+}
+
+.vitruvium .sheet-tabs .item {
+  color: #aaa;
+  padding: 5px 15px;
+  border-radius: 4px 4px 0 0;
+  font-weight: bold;
+}
+
+.vitruvium .sheet-tabs .item.active {
+  background: #f0f0f0;
+  color: #2b2b2b;
+  text-decoration: none;
+}
+
+/* ====== СПИСКИ ПРЕДМЕТОВ ====== */
+
+.vitruvium .items-list {
+  padding: 5px;
+}
+
+.vitruvium .items-header {
+  background: #4a6c8f;
+  color: white;
+  padding: 4px 8px;
+  font-weight: bold;
+  border-radius: 3px 3px 0 0;
+  margin-top: 10px;
+}
+
+.vitruvium .items-header:first-child {
+  margin-top: 0;
+}
+
+.vitruvium .item {
+  padding: 4px 8px;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+}
+
+.vitruvium .item:nth-child(even) {
+  background: #f4f4f4;
+}
+
+.vitruvium .item .item-image {
+  margin-right: 8px;
+}
+
+.vitruvium .item .item-name {
+  flex: 2;
+  cursor: pointer;
+}
+
+.vitruvium .item .item-level,
+.vitruvium .item .item-type,
+.vitruvium .item .item-domain,
+.vitruvium .item .item-detail {
+  flex: 0.5;
+  text-align: center;
+}
+
+.vitruvium .item .item-controls {
+  flex: 0 0 80px;
+  text-align: right;
+}
+
+.vitruvium .item .item-controls a {
+  margin-left: 5px;
+  color: #4a6c8f;
+}
+
+.vitruvium .item .item-controls a.item-delete {
+  color: #b33;
+}
+
+/* ====== СТИЛИ ДЛЯ ЧАТА ====== */
+
+.vitruvium.chat-card {
+  padding: 5px;
+}
+
+.vitruvium.chat-card .card-header {
+  background: #2b2b2b;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 3px 3px 0 0;
+}
+
+.vitruvium.chat-card .card-header h3 {
+  margin: 0;
+  font-size: 16px;
+  border: none;
+}
+
+.vitruvium.chat-card .card-header h4 {
+  margin: 2px 0 0;
+  font-size: 12px;
+  opacity: 0.8;
+  border: none;
+}
+
+.vitruvium.chat-card .card-content {
+  background: #f4f4f4;
+  padding: 8px;
+  border-radius: 0 0 3px 3px;
+}
+
+.vitruvium.chat-card .dice-result {
+  margin-bottom: 10px;
+}
+
+.vitruvium.chat-card .dice-formula {
+  font-size: 12px;
+  color: #666;
+}
+
+.vitruvium.chat-card .dice-total {
+  font-size: 1.2em;
+  padding: 0.5rem;
+  background: rgba(0,0,0,0.05);
+  border-radius: 3px;
+  margin: 0.5rem 0;
+}
+
+.vitruvium.chat-card .success-color {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.vitruvium.chat-card .partial-color {
+  color: #ed6c02;
+  font-weight: bold;
+}
+
+.vitruvium.chat-card .failure-color {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.vitruvium.chat-card .advantage {
+  color: #2e7d32;
+  font-style: italic;
+  margin-left: 0.5rem;
+}
+
+.vitruvium.chat-card .disadvantage {
+  color: #d32f2f;
+  font-style: italic;
+  margin-left: 0.5rem;
+}
+
+.vitruvium.chat-card .result-text {
+  font-size: 1.1em;
+  margin: 0.5rem 0 0;
+  text-align: center;
+}
+
+/* ====== ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ ====== */
+
+.grid {
+  display: grid;
+}
+
+.grid-2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5col {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-6col {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
