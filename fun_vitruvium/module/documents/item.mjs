@@ -1,71 +1,94 @@
-/**
- * Extend the basic Item with some very simple modifications.
- * @extends {Item}
- */
-export class BoilerplateItem extends Item {
-  /**
-   * Augment the basic Item data model with additional dynamic data.
-   */
-  prepareData() {
-    // As with the actor class, items are documents that can have their data
-    // preparation methods overridden (such as prepareBaseData()).
-    super.prepareData();
-  }
-
-  /**
-   * Prepare a data object which defines the data schema used by dice roll commands against this Item
-   * @override
-   */
-  getRollData() {
-    // Starts off by populating the roll data with a shallow copy of `this.system`
-    const rollData = { ...this.system };
-
-    // Quit early if there's no parent actor
-    if (!this.actor) return rollData;
-
-    // If present, add the actor's roll data
-    rollData.actor = this.actor.getRollData();
-
-    return rollData;
-  }
-
-  /**
-   * Handle clickable rolls.
-   * @param {Event} event   The originating click event
-   * @private
-   */
-  async roll() {
-    const item = this;
-
-    // Initialize chat data.
-    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    const rollMode = game.settings.get('core', 'rollMode');
-    const label = `[${item.type}] ${item.name}`;
-
-    // If there's no roll data, send a chat message.
-    if (!this.system.formula) {
-      ChatMessage.create({
-        speaker: speaker,
-        rollMode: rollMode,
-        flavor: label,
-        content: item.system.description ?? '',
-      });
+export class VitruviumItem extends Item {
+  /** @override */
+  prepareDerivedData() {
+    super.prepareDerivedData();
+    
+    const itemData = this;
+    const systemData = itemData.system;
+    
+    // Валидация в зависимости от типа
+    switch ( itemData.type ) {
+      case 'ability':
+        this._prepareAbilityData(systemData);
+        break;
+      case 'weapon':
+        this._prepareWeaponData(systemData);
+        break;
+      case 'armor':
+        this._prepareArmorData(systemData);
+        break;
     }
-    // Otherwise, create a roll and send a chat message from it.
-    else {
-      // Retrieve roll data.
-      const rollData = this.getRollData();
-
-      // Invoke the roll and submit it to chat.
-      const roll = new Roll(rollData.formula, rollData);
-      // If you need to store the value first, uncomment the next line.
-      // const result = await roll.evaluate();
-      roll.toMessage({
-        speaker: speaker,
-        rollMode: rollMode,
-        flavor: label,
-      });
-      return roll;
+  }
+  
+  /** Подготовка данных способности */
+  _prepareAbilityData(data) {
+    // Убеждаемся что уровень в пределах 1-6
+    if ( data.level ) {
+      data.level.value = Math.clamped(data.level.value || 1, 1, 6);
     }
+  }
+  
+  /** Подготовка данных оружия */
+  _prepareWeaponData(data) {
+    // Урон не может быть отрицательным
+    if ( data.damage ) {
+      data.damage.value = Math.max(0, data.damage.value || 0);
+    }
+  }
+  
+  /** Подготовка данных брони */
+  _prepareArmorData(data) {
+    // Прочность не может быть больше максимальной
+    if ( data.durability && data.durabilityMax ) {
+      data.durability.value = Math.min(
+        data.durability.value || 0,
+        data.durabilityMax.value || 0
+      );
+    }
+  }
+  
+  /** 
+   * Использовать способность (для активных способностей)
+   */
+  async use() {
+    if ( this.type !== 'ability' ) return;
+    
+    const systemData = this.system;
+    
+    // Проверяем, активная ли способность
+    if ( systemData.activation?.value !== 'активная' ) {
+      ui.notifications.warn('Эта способность пассивная');
+      return;
+    }
+    
+    // Проверяем стоимость
+    const cost = systemData.cost?.value || 0;
+    if ( cost > 0 ) {
+      const actor = this.parent;
+      if ( !actor ) {
+        ui.notifications.warn('Способность не принадлежит персонажу');
+        return;
+      }
+      
+      const inspiration = actor.system.inspiration?.value || 0;
+      if ( inspiration < cost ) {
+        ui.notifications.warn(`Недостаточно вдохновения. Нужно: ${cost}`);
+        return;
+      }
+      
+      // Списываем вдохновение
+      await actor.update({ 'system.inspiration.value': inspiration - cost });
+    }
+    
+    // Создаём сообщение в чат
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this.parent }),
+      content: await renderTemplate('systems/vitruvium/templates/chat/ability.hbs', {
+        name: this.name,
+        level: systemData.level?.value,
+        type: systemData.abilityType?.value,
+        effect: systemData.effect?.value
+      })
+    });
   }
 }
