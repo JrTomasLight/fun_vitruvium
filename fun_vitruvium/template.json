@@ -1,73 +1,254 @@
 {
-  "Actor": {
+  "actor": {
     "types": ["character", "npc"],
     "templates": {
       "base": {
+        "attributes": {
+          "body": {
+            "type": "Number",
+            "label": "ТЕЛОСЛОЖЕНИЕ",
+            "value": 1,
+            "min": 1,
+            "max": 6
+          },
+          "perception": {
+            "type": "Number",
+            "label": "ВНИМАНИЕ",
+            "value": 1,
+            "min": 1,
+            "max": 6
+          },
+          "movement": {
+            "type": "Number",
+            "label": "ДВИЖЕНИЕ",
+            "value": 1,
+            "min": 1,
+            "max": 6
+          },
+          "mind": {
+            "type": "Number",
+            "label": "МЫШЛЕНИЕ",
+            "value": 1,
+            "min": 1,
+            "max": 6
+          },
+          "influence": {
+            "type": "Number",
+            "label": "ВЛИЯНИЕ",
+            "value": 1,
+            "min": 1,
+            "max": 6
+          },
+          "will": {
+            "type": "Number",
+            "label": "ВОЛЯ",
+            "value": 1,
+            "min": 1,
+            "max": 6
+          }
+        },
         "health": {
-          "value": 10,
+          "type": "Number",
+          "label": "ЗДОРОВЬЕ",
+          "value": 6,
           "min": 0,
-          "max": 10
+          "max": 0
         },
-        "power": {
-          "value": 5,
+        "inspiration": {
+          "type": "Number",
+          "label": "ВДОХНОВЕНИЕ",
+          "value": 0,
           "min": 0,
-          "max": 5
+          "max": 6
         },
-        "biography": ""
+        "speed": {
+          "type": "Number",
+          "label": "СКОРОСТЬ",
+          "value": 2,
+          "min": 0,
+          "max": null
+        },
+        "carryCapacity": {
+          "type": "Number",
+          "label": "ГРУЗОПОДЪЁМНОСТЬ",
+          "value": 20,
+          "min": 0,
+          "max": null
+        },
+        "encumbrance": {
+          "type": "Number",
+          "label": "ПЕРЕГРУЗ",
+          "value": 0,
+          "min": 0,
+          "max": null
+        },
+        "stress": {
+          "type": "Number",
+          "label": "СТРЕСС",
+          "value": 0,
+          "min": 0,
+          "max": 3
+        },
+        "actionPoints": {
+          "type": "Number",
+          "label": "ОЧКИ ДЕЙСТВИЙ",
+          "value": 0,
+          "max": 3
+        },
+        "experience": {
+          "total": {
+            "type": "Number",
+            "label": "ВСЕГО ОПЫТА",
+            "value": 0
+          },
+          "free": {
+            "type": "Number",
+            "label": "СВОБОДНЫЙ ОПЫТ",
+            "value": 0
+          },
+          "level": {
+            "type": "Number",
+            "label": "УРОВЕНЬ",
+            "value": 1
+          }
+        }
       }
     },
     "character": {
-      "templates": ["base"],
-      "attributes": {
-        "level": {
-          "value": 1
-        }
-      },
-      "abilities": {
-        "str": {
-          "value": 10
-        },
-        "dex": {
-          "value": 10
-        },
-        "con": {
-          "value": 10
-        },
-        "int": {
-          "value": 10
-        },
-        "wis": {
-          "value": 10
-        },
-        "cha": {
-          "value": 10
-        }
-      }
-    },
-    "npc": {
-      "templates": ["base"],
-      "cr": 0
-    }
-  },
-  "Item": {
-    "types": ["item", "feature", "spell"],
-    "templates": {
-      "base": {
-        "description": ""
-      }
-    },
-    "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
-    },
-    "feature": {
       "templates": ["base"]
     },
-    "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
+    "npc": {
+      "templates": ["base"]
+    }
+  },
+  "item": {
+    "types": ["ability", "domain", "weapon", "armor", "feature"],
+    "ability": {
+      "level": {
+        "type": "Number",
+        "label": "УРОВЕНЬ",
+        "value": 1,
+        "min": 1,
+        "max": 6
+      },
+      "abilityType": {
+        "type": "String",
+        "label": "ТИП",
+        "value": "знание",
+        "options": ["знание", "навык", "черта", "источник", "мастерство", "приём"]
+      },
+      "domain": {
+        "type": "String",
+        "label": "ДОМЕН",
+        "value": ""
+      },
+      "activation": {
+        "type": "String",
+        "label": "АКТИВАЦИЯ",
+        "value": "пассивная",
+        "options": ["пассивная", "активная"]
+      },
+      "cost": {
+        "type": "Number",
+        "label": "СТОИМОСТЬ",
+        "value": 0,
+        "min": 0
+      },
+      "effect": {
+        "type": "String",
+        "label": "ЭФФЕКТ",
+        "value": ""
+      }
+    },
+    "domain": {
+      "level": {
+        "type": "Number",
+        "label": "УРОВЕНЬ ДОМЕНА",
+        "value": 1,
+        "min": 1,
+        "max": 6
+      },
+      "domainType": {
+        "type": "String",
+        "label": "ТИП ДОМЕНА",
+        "value": "средний",
+        "options": ["малый", "средний", "большой"]
+      },
+      "description": {
+        "type": "String",
+        "label": "ОПИСАНИЕ",
+        "value": ""
+      }
+    },
+    "weapon": {
+      "attackType": {
+        "type": "String",
+        "label": "ТИП АТАКИ",
+        "value": "ближний",
+        "options": ["ближний", "дальний"]
+      },
+      "attribute": {
+        "type": "String",
+        "label": "ХАРАКТЕРИСТИКА",
+        "value": "movement",
+        "options": ["body", "perception", "movement", "mind", "influence", "will"]
+      },
+      "damage": {
+        "type": "Number",
+        "label": "УРОН",
+        "value": 1,
+        "min": 0
+      },
+      "properties": {
+        "type": "String",
+        "label": "СВОЙСТВА",
+        "value": ""
+      }
+    },
+    "armor": {
+      "block": {
+        "type": "Number",
+        "label": "БЛОК",
+        "value": 0,
+        "min": 0
+      },
+      "durability": {
+        "type": "Number",
+        "label": "ПРОЧНОСТЬ",
+        "value": 0,
+        "min": 0
+      },
+      "durabilityMax": {
+        "type": "Number",
+        "label": "МАКС. ПРОЧНОСТЬ",
+        "value": 0,
+        "min": 0
+      },
+      "minBody": {
+        "type": "Number",
+        "label": "МИН. ТЕЛОСЛОЖЕНИЕ",
+        "value": 0,
+        "min": 0
+      },
+      "speedPenalty": {
+        "type": "Number",
+        "label": "ШТРАФ К СКОРОСТИ",
+        "value": 0,
+        "min": 0
+      }
+    },
+    "feature": {
+      "featureType": {
+        "type": "String",
+        "label": "ТИП ОСОБЕННОСТИ",
+        "value": "раса",
+        "options": ["раса", "возраст", "прочее"]
+      },
+      "description": {
+        "type": "String",
+        "label": "ОПИСАНИЕ",
+        "value": ""
+      }
     }
   }
 }
