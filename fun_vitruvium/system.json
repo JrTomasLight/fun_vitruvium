@@ -36,10 +36,12 @@
     }
   ],
   "packs": [],
-  "manifest": "https://github.com/JrTomasLight/fun_vitruvium/releases/latest/download/system.json",
-  "download": "https://github.com/JrTomasLight/fun_vitruvium/releases/download/1.0.0/system.zip",
+  "manifest": "https://raw.githubusercontent.com/JrTomasLight/fun_vitruviu/main/system.json",
+  "download": "https://github.com/JrTomasLight/fun_vitruviu/releases/download/1.0.0/system.zip",
   "gridDistance": 5,
   "gridUnits": "футов",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power"
 }
+
+
