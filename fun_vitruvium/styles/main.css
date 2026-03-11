@@ -1,6 +1,372 @@
-/* ================================== */
-/* ====== ОСНОВНЫЕ СТИЛИ =========== */
-/* ================================== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/* Global styles */
+.window-app {
+  font-family: "Roboto", sans-serif;
+}
+
+.rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2/span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3/span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4/span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5/span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 6/span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7/span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8/span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9/span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10/span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11/span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12/span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.grid-start-2 {
+  grid-column-start: 2;
+}
+
+.grid-start-3 {
+  grid-column-start: 3;
+}
+
+.grid-start-4 {
+  grid-column-start: 4;
+}
+
+.grid-start-5 {
+  grid-column-start: 5;
+}
+
+.grid-start-6 {
+  grid-column-start: 6;
+}
+
+.grid-start-7 {
+  grid-column-start: 7;
+}
+
+.grid-start-8 {
+  grid-column-start: 8;
+}
+
+.grid-start-9 {
+  grid-column-start: 9;
+}
+
+.grid-start-10 {
+  grid-column-start: 10;
+}
+
+.grid-start-11 {
+  grid-column-start: 11;
+}
+
+.grid-start-12 {
+  grid-column-start: 12;
+}
+
+.grid-span-2 {
+  grid-column-end: span 2;
+}
+
+.grid-span-3 {
+  grid-column-end: span 3;
+}
+
+.grid-span-4 {
+  grid-column-end: span 4;
+}
+
+.grid-span-5 {
+  grid-column-end: span 5;
+}
+
+.grid-span-6 {
+  grid-column-end: span 6;
+}
+
+.grid-span-7 {
+  grid-column-end: span 7;
+}
+
+.grid-span-8 {
+  grid-column-end: span 8;
+}
+
+.grid-span-9 {
+  grid-column-end: span 9;
+}
+
+.grid-span-10 {
+  grid-column-end: span 10;
+}
+
+.grid-span-11 {
+  grid-column-end: span 11;
+}
+
+.grid-span-12 {
+  grid-column-end: span 12;
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-group-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flexshrink {
+  flex: 0;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flexlarge {
+  flex: 2;
+}
+
+.align-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.align-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.align-center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Styles limited to boilerplate sheets */
+.boilerplate .item-form {
+  font-family: "Roboto", sans-serif;
+}
+.boilerplate .sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.boilerplate .sheet-header .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+.boilerplate .sheet-header .header-fields {
+  flex: 1;
+}
+.boilerplate .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.boilerplate .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.boilerplate .sheet-tabs {
+  flex: 0;
+}
+.boilerplate .sheet-body,
+.boilerplate .sheet-body .tab,
+.boilerplate .sheet-body .tab .editor {
+  height: 100%;
+}
+.boilerplate .tox .tox-editor-container {
+  background: #fff;
+}
+.boilerplate .tox .tox-edit-area {
+  padding: 0 8px;
+}
+.boilerplate .resource-label {
+  font-weight: bold;
+}
+.boilerplate .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.boilerplate .items-header > * {
+  font-size: 14px;
+  text-align: center;
+}
+.boilerplate .items-header .item-name {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  display: flex;
+}
+.boilerplate .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+.boilerplate .items-list .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.boilerplate .items-list .item-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+.boilerplate .items-list .item-name h3, .boilerplate .items-list .item-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.boilerplate .items-list .item-controls {
+  display: flex;
+  flex: 0 0 100px;
+  justify-content: flex-end;
+}
+.boilerplate .items-list .item-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.boilerplate .items-list .item {
+  align-items: center;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.boilerplate .items-list .item:last-child {
+  border-bottom: none;
+}
+.boilerplate .items-list .item .item-name {
+  color: #191813;
+}
+.boilerplate .items-list .item .item-name .item-image {
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+.boilerplate .items-list .item-prop {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.boilerplate .items-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.boilerplate .items-list .items-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+.boilerplate .items-list .items-header .item-name {
+  padding-left: 5px;
+  text-align: left;
+}
+.boilerplate .item-formula {
+  flex: 0 0 200px;
+  padding: 0 8px;
+}
+.boilerplate .effects .item .effect-source,
+.boilerplate .effects .item .effect-duration,
+.boilerplate .effects .item .effect-controls {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.boilerplate .effects .item .effect-controls {
+  border: none;
+}
+
+/* ====== СТИЛИ ДЛЯ СИСТЕМЫ ВИТРУВИЙ ====== */
+/* Добавлено поверх шаблона boilerplate */
 
 .vitruvium.sheet.actor {
   min-width: 720px;
@@ -14,7 +380,7 @@
   border-radius: 4px 4px 0 0;
 }
 
-.vitruvium .sheet-header .profile {
+.vitruvium .sheet-header .profile-img {
   border: 2px solid #444;
   border-radius: 4px;
   margin-right: 10px;
@@ -45,8 +411,7 @@
   border-radius: 3px;
 }
 
-/* ====== РЕСУРСЫ (Здоровье, Вдохновение и т.д.) ====== */
-
+/* Ресурсы (Здоровье, Вдохновение и т.д.) */
 .vitruvium .resource-panel {
   background: #f0f0f0;
   padding: 10px;
@@ -96,8 +461,7 @@
   text-align: left;
 }
 
-/* ====== ХАРАКТЕРИСТИКИ ====== */
-
+/* Характеристики */
 .vitruvium .attributes-panel {
   padding: 10px;
   background: #e8e8e8;
@@ -147,8 +511,7 @@
   background: #5d7ea3;
 }
 
-/* ====== ПРОИЗВОДНЫЕ ПОКАЗАТЕЛИ ====== */
-
+/* Производные показатели */
 .vitruvium .derived-panel {
   padding: 8px 10px;
   background: #d8d8d8;
@@ -179,8 +542,7 @@
   font-style: italic;
 }
 
-/* ====== ВКЛАДКИ ====== */
-
+/* Вкладки */
 .vitruvium .sheet-tabs {
   background: #2b2b2b;
   padding: 5px 10px 0;
@@ -200,8 +562,7 @@
   text-decoration: none;
 }
 
-/* ====== СПИСКИ ПРЕДМЕТОВ ====== */
-
+/* Списки предметов (переопределение стилей boilerplate) */
 .vitruvium .items-list {
   padding: 5px;
 }
@@ -213,6 +574,7 @@
   font-weight: bold;
   border-radius: 3px 3px 0 0;
   margin-top: 10px;
+  border: none;
 }
 
 .vitruvium .items-header:first-child {
@@ -260,8 +622,7 @@
   color: #b33;
 }
 
-/* ====== СТИЛИ ДЛЯ ЧАТА ====== */
-
+/* Стили для чата */
 .vitruvium.chat-card {
   padding: 5px;
 }
@@ -340,42 +701,4 @@
   font-size: 1.1em;
   margin: 0.5rem 0 0;
   text-align: center;
-}
-
-/* ====== ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ ====== */
-
-.grid {
-  display: grid;
-}
-
-.grid-2col {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.grid-3col {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-4col {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.grid-5col {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.grid-6col {
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.flexrow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.flexcol {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
 }
