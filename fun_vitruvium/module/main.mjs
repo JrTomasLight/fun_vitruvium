@@ -1,8 +1,10 @@
 // Импорт классов
-import { VitruviumActor } from './actor.mjs';
-import { VitruviumItem } from './item.mjs';
-import { VitruviumActorSheet } from './actor-sheet.mjs';
-import { VitruviumItemSheet } from './item-sheet.mjs';
+import { VitruviumActor } from './documents/actor.mjs';
+import { VitruviumItem } from './documents/item.mjs';
+import { VitruviumActorSheet } from './sheets/actor-sheet.mjs';
+import { VitruviumItemSheet } from './sheets/item-sheet.mjs';
+
+// Остальной код, который ты уже вставил...
 
 // Хук инициализации
 Hooks.once('init', async function() {
