@@ -41,7 +41,5 @@
   "gridDistance": 5,
   "gridUnits": "футов",
   "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
+  "secondaryTokenAttribute": "power"
 }
-
-
