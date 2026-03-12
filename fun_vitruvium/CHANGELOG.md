@@ -1,5 +1,5 @@
 # CHANGELOG
 
-## 1.2.0
+## 1.0.1
 
-- Add support for Foundry v10
+— Release system on Foundry (without module)
