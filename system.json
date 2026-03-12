@@ -12,7 +12,7 @@
   "url": "https://github.com/JrTomasLight/fun_vitruvium",
   "license": "LICENSE",
   "readme": "README.md",
-  "version": "1.0.3",
+  "version": "1.0.2",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
