@@ -1,5 +1,5 @@
 {
-  "id": "fun_vitruvium",
+  "id": "fun_vitruviu",
   "title": "Витрувий",
   "description": "Фанатская система на основе игровой системы Витрувий",
   "authors": [
@@ -9,7 +9,7 @@
       "discord": "jrtomaslight"
     }
   ],
-  "url": "https://github.com/JrTomasLight/fun_vitruvium",
+  "url": "https://github.com/JrTomasLight/fun_vitruviu",
   "license": "LICENSE",
   "readme": "README.md",
   "version": "1.0.2",
@@ -36,12 +36,12 @@
     }
   ],
   "packs": [],
-  "manifest": "https://github.com/JrTomasLight/fun_vitruvium/releases/latest/download/system.json",
-  "download": "https://github.com/JrTomasLight/fun_vitruvium/releases/download/1.0.2/system.zip",
+  "manifest": "https://raw.githubusercontent.com/JrTomasLight/fun_vitruviu/main/system.json",
+  "download": "https://github.com/JrTomasLight/fun_vitruviu/releases/download/1.0.2/system.zip",
   "grid": {
     "distance": 5,
     "units": "футов"
-          }
+  },
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power"
 }
