@@ -12,7 +12,7 @@
   "url": "https://github.com/JrTomasLight/fun_vitruvium",
   "license": "LICENSE",
   "readme": "README.md",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
@@ -37,7 +37,7 @@
   ],
   "packs": [],
   "manifest": "https://raw.githubusercontent.com/JrTomasLight/fun_vitruvium/main/system.json",
-  "download": "https://github.com/JrTomasLight/fun_vitruvium/releases/download/1.0.2/system.zip",
+  "download": "https://github.com/JrTomasLight/fun_vitruvium/releases/download/1.0.3/system.zip",
   "grid": {
     "distance": 5,
     "units": "футов"
