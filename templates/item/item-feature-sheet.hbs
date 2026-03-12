@@ -1,0 +1,36 @@
+<form class="vitruvium {{cssClass}} flexcol" autocomplete="off">
+  <header class="sheet-header flexrow">
+    <img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
+    <div class="header-details flexcol">
+      <h1 class="charname">
+        <input name="name" type="text" value="{{item.name}}" placeholder="Название особенности"/>
+      </h1>
+    </div>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Описание</a>
+    <a class="item" data-tab="details">Параметры</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+
+    <div class="tab" data-group="primary" data-tab="details">
+      <div class="form-group">
+        <label>Тип особенности</label>
+        <div class="form-fields">
+          <select name="system.featureType.value">
+            {{#select system.featureType.value}}
+            <option value="раса">Раса</option>
+            <option value="возраст">Возраст</option>
+            <option value="прочее">Прочее</option>
+            {{/select}}
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

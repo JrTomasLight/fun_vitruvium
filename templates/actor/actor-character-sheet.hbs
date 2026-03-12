@@ -1,0 +1,174 @@
+<form class="vitruvium {{actor.type}} flexcol" autocomplete="off">
+  <!-- Заголовок с портретом и основными данными -->
+  <header class="sheet-header flexrow">
+    <img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img"/>
+    <div class="header-details flexcol">
+      <h1 class="charname">
+        <input name="name" type="text" value="{{actor.name}}" placeholder="Имя персонажа"/>
+      </h1>
+      <div class="summary flexrow">
+        <span>
+          <input type="text" name="system.details.race" value="{{system.details.race}}" placeholder="Раса"/>
+        </span>
+        <span>
+          <input type="text" name="system.details.age" value="{{system.details.age}}" placeholder="Возраст"/>
+        </span>
+        <span>
+          <input type="text" name="system.details.level" value="{{system.experience.level.value}}" placeholder="Уровень" disabled/>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основные ресурсы -->
+  <section class="resource-panel grid grid-4col">
+    <div class="resource health">
+      <label>ЗДОРОВЬЕ</label>
+      <div class="resource-control flexrow">
+        <input type="number" name="system.health.value" value="{{system.health.value}}" min="0" max="{{system.health.max}}"/>
+        <span class="separator">/</span>
+        <span class="max">{{system.health.max}}</span>
+      </div>
+    </div>
+    
+    <div class="resource inspiration">
+      <label>ВДОХНОВЕНИЕ</label>
+      <div class="resource-control flexrow">
+        <input type="number" name="system.inspiration.value" value="{{system.inspiration.value}}" min="0" max="{{system.inspiration.max}}"/>
+        <span class="separator">/</span>
+        <span class="max">{{system.inspiration.max}}</span>
+      </div>
+    </div>
+    
+    <div class="resource stress">
+      <label>СТРЕСС</label>
+      <div class="resource-control flexrow">
+        <input type="number" name="system.stress.value" value="{{system.stress.value}}" min="0" max="3"/>
+        <span class="separator">/</span>
+        <span class="max">3</span>
+      </div>
+    </div>
+    
+    <div class="resource ap">
+      <label>ОЧКИ ДЕЙСТВИЙ</label>
+      <div class="resource-control flexrow">
+        <input type="number" name="system.actionPoints.value" value="{{system.actionPoints.value}}" min="0" max="3"/>
+        <span class="separator">/</span>
+        <span class="max">3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Характеристики -->
+  <section class="attributes-panel grid grid-6col">
+    <div class="attribute">
+      <label>ТЕЛОСЛОЖЕНИЕ</label>
+      <div class="attribute-value flexrow">
+        <input type="number" name="system.attributes.body.value" value="{{system.attributes.body.value}}" min="1" max="6"/>
+        <button type="button" class="roll-attribute" data-attr="body" title="Бросить проверку">
+          <i class="fas fa-dice"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="attribute">
+      <label>ВНИМАНИЕ</label>
+      <div class="attribute-value flexrow">
+        <input type="number" name="system.attributes.perception.value" value="{{system.attributes.perception.value}}" min="1" max="6"/>
+        <button type="button" class="roll-attribute" data-attr="perception" title="Бросить проверку">
+          <i class="fas fa-dice"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="attribute">
+      <label>ДВИЖЕНИЕ</label>
+      <div class="attribute-value flexrow">
+        <input type="number" name="system.attributes.movement.value" value="{{system.attributes.movement.value}}" min="1" max="6"/>
+        <button type="button" class="roll-attribute" data-attr="movement" title="Бросить проверку">
+          <i class="fas fa-dice"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="attribute">
+      <label>МЫШЛЕНИЕ</label>
+      <div class="attribute-value flexrow">
+        <input type="number" name="system.attributes.mind.value" value="{{system.attributes.mind.value}}" min="1" max="6"/>
+        <button type="button" class="roll-attribute" data-attr="mind" title="Бросить проверку">
+          <i class="fas fa-dice"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="attribute">
+      <label>ВЛИЯНИЕ</label>
+      <div class="attribute-value flexrow">
+        <input type="number" name="system.attributes.influence.value" value="{{system.attributes.influence.value}}" min="1" max="6"/>
+        <button type="button" class="roll-attribute" data-attr="influence" title="Бросить проверку">
+          <i class="fas fa-dice"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="attribute">
+      <label>ВОЛЯ</label>
+      <div class="attribute-value flexrow">
+        <input type="number" name="system.attributes.will.value" value="{{system.attributes.will.value}}" min="1" max="6"/>
+        <button type="button" class="roll-attribute" data-attr="will" title="Бросить проверку">
+          <i class="fas fa-dice"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Производные показатели -->
+  <section class="derived-panel flexrow">
+    <div class="derived">
+      <label>СКОРОСТЬ</label>
+      <span class="value">{{system.speed.value}}</span>
+    </div>
+    <div class="derived">
+      <label>ГРУЗОПОДЪЁМНОСТЬ</label>
+      <span class="value">{{system.carryCapacity.value}} кг</span>
+    </div>
+    <div class="derived">
+      <label>ПЕРЕГРУЗ</label>
+      <span class="value">{{system.encumbrance.value}} кг</span>
+      {{#if system.encumbrance.steps}}
+        <span class="penalty">(штраф -{{system.encumbrance.steps}})</span>
+      {{/if}}
+    </div>
+  </section>
+
+  <!-- Вкладки -->
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="abilities">Способности</a>
+    <a class="item" data-tab="combat">Бой</a>
+    <a class="item" data-tab="inventory">Инвентарь</a>
+    <a class="item" data-tab="biography">Биография</a>
+  </nav>
+
+  <!-- Содержимое вкладок -->
+  <section class="sheet-body">
+    <!-- Вкладка способностей -->
+    <div class="tab abilities" data-group="primary" data-tab="abilities">
+      {{> "systems/vitruvium/templates/actor/parts/actor-abilities.hbs"}}
+    </div>
+    
+    <!-- Вкладка инвентаря -->
+    <div class="tab inventory" data-group="primary" data-tab="inventory">
+      {{> "systems/vitruvium/templates/actor/parts/actor-inventory.hbs"}}
+    </div>
+    
+    <!-- Вкладка боя -->
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      {{> "systems/vitruvium/templates/actor/parts/actor-combat.hbs"}}
+    </div>
+    
+    <!-- Вкладка биографии -->
+    <div class="tab biography" data-group="primary" data-tab="biography">
+      {{editor system.biography target="system.biography" button=true owner=owner editable=editable}}
+    </div>
+  </section>
+</form>
